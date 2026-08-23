@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Raza | Electronics & Hardware Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --border-color: #1f2937;
+            --accent-color: #0ea5e9;
+            --accent-glow: rgba(14, 165, 233, 0.15);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 0.5px;
+        }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            text-align: center;
+            padding: 90px 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, var(--bg-color) 70%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-glow);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        section {
+            margin-bottom: 70px;
+        }
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        section h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px -10px var(--accent-glow);
+        }
+        .card h3 {
+            font-size: 1.35rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .tag {
+            background-color: #1f2937;
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .skill-category h4 {
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+        .skill-category ul {
+            list-style-type: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .skill-category li {
+            padding: 4px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+        }
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-color);
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--card-bg);
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">&lt;Hassan.Raza /&gt;</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#projects">Hardware Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="badge">Electrical Engineering Student</div>
+        <h1>Hardware Design & Embedded Systems</h1>
+        <p>Specialized in digital logic architecture, VHDL-based CPU pipelining, discrete component simulation, and hardware prototyping.</p>
+    </div>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>Profile Overview</h2>
+            <div class="card">
+                <p>I am an Electrical Engineering student with a deep passion for digital circuit design, low-level architecture, and hardware description languages. My work bridges theoretical electronics with practical implementation, focusing on efficient digital logic, RTL design, and hardware simulation environments.</p>
+            </div>
+        </section>
+
+        <section id="expertise">
+            <h2>Technical Competencies</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>HDL & FPGA Design</h4>
+                    <ul>
+                        <li>VHDL & Verilog</li>
+                        <li>Xilinx Vivado IDE</li>
+                        <li>RTL Simulation & Waveforms</li>
+                        <li>Pipeline Hazard Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Circuit Simulation</h4>
+                    <ul>
+                        <li>Proteus Professional</li>
+                        <li>Multisim & LTspice</li>
+                        <li>Discrete Logic Design</li>
+                        <li>Combinational/Sequential Circuits</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Core Concepts</h4>
+                    <ul>
+                        <li>RISC-V Architecture</li>
+                        <li>ALU & Multiplexer Routing</li>
+                        <li>Forwarding & Stalling Logic</li>
+                        <li>Hardware Prototyping</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Hardware Projects</h2>
+            <div class="grid-2">
+                
+                <div class="card">
+                    <h3>RISC-V Pipelined Processor</h3>
+                    <p>Designed a robust data hazard management system in Xilinx Vivado using VHDL. Integrated a 32-bit ALU, Register File, Forwarding Unit, and Hazard Detection Unit to bypass data dependencies and control pipeline execution stalls.</p>
+                    <div class="tags">
+                        <span class="tag">VHDL</span>
+                        <span class="tag">Vivado</span>
+                        <span class="tag">RISC-V</span>
+                        <span class="tag">Pipeline</span>
+                    </div>
+                    <a href="https://github.com/HassanRaza" target="_blank" class="btn">View Repository</a>
+                </div>
+
+                <div class="card">
+                    <h3>8-Bit Multiplexed ALU</h3>
+                    <p>Engineered and simulated a fully functional Arithmetic Logic Unit using discrete digital logic and multiplexers in Proteus. Features Mux data routing and real-time visualization onto dual 7-segment displays.</p>
+                    <div class="tags">
+                        <span class="tag">Proteus</span>
+                        <span class="tag">Digital Logic</span>
+                        <span class="tag">MUX</span>
+                        <span class="tag">7-Segment</span>
+                    </div>
+                    <a href="https://github.com/HassanRaza" target="_blank" class="btn">View Repository</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="card" style="text-align: center;">
+                <p style="margin-bottom: 20px;">Open to professional networking, engineering collaborations, and discussions on embedded systems and digital design.</p>
+                <a href="https://www.linkedin.com" target="_blank" class="btn" style="padding: 10px 24px;">Connect on LinkedIn</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hassan Raza &bull; Electrical Engineering Portfolio &bull; Powered by GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
